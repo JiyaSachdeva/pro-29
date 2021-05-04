@@ -55,7 +55,8 @@ function setup(){
    blocks9 = new Block(700,95,30,40);
    stand1 = new Ground(390,300,250,10);
   stand2 = new Ground(700,200,200,10);
-    rope = new Rope(this.ball,{x:100,y:200});
+  
+  rope = new Rope(this.ball,{x:100,y:200});
 
  
 
@@ -64,9 +65,11 @@ function setup(){
 function draw(){
     Engine.update(engine);
     background("blue");
+
     strokeWeight(2);
     stroke(15);
     fill("skyblue");
+
     block1.display();
     block2.display();
     block3.display();
@@ -74,34 +77,50 @@ function draw(){
     block5.display();
     block6.display();
     block7.display();
+
     fill("pink");
+
     block8.display();
     block9.display();
     block10.display();
     block11.display();
     block12.display();
+
     fill("turquoise");
     block13.display();
     block14.display();
     block15.display();
+
     fill("grey");
     block16.display();
+
     fill("skyblue");
     blocks1.display();
     blocks2.display();
     blocks3.display();
     blocks4.display();
     blocks5.display();
+
     fill("turquoise");
     blocks6.display();
     blocks7.display();
     blocks8.display();
+    
     fill("pink")
     blocks9.display();
     stand1.display();
     stand2.display();
     rope.display();
+
     imageMode(CENTER)
     image(polygon_img ,ball.position.x,ball.position.y,40,40);
 
 }
+
+ function mouseReleased(){
+     rope.fly();
+ }
+
+ function mouseDragged(){
+     Matter.Body.setPosition(this.ball,{x:mouseX,y:mouseY});
+ }
